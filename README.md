@@ -5,7 +5,27 @@ This repository showcases an end-to-end SQL analysis of a freight and logistics 
 ## Data Source
 The queries in this repository are built on the **Logistics Operations Database**. The original schema and raw tables can be found on Kaggle:  
 [Logistics Operations Database on Kaggle](https://www.kaggle.com/datasets/yogape/logistics-operations-database)
+## Database Schema & Architecture
+The underlying data architecture follows a Star Schema design, consisting of central Fact tables (Trips, Loads, Deliveries, Finances) connected to multiple Dimension tables (Assets, Locations, Personnel).
 
+![Logistics Database ERD](Logistics_ERD.jpg)
+
+<details>
+<summary><b>📋 Click to expand: Data Dictionary & Relationships</b></summary>
+
+### Key Entities:
+* **Fact Tables:** `LOADS`, `TRIPS`, `FUEL_PURCHASES`, `MAINTENANCE_RECORDS`, `DELIVERY_EVENTS`, `SAFETY_INCIDENTS`
+* **Dimension Tables:** `DRIVERS`, `TRUCKS`, `TRAILERS`, `CUSTOMERS`, `FACILITIES`, `ROUTES`
+
+### Core Relationships:
+* `loads` -> `customers` (many-to-one)
+* `loads` -> `routes` (many-to-one)
+* `trips` -> `loads` (one-to-one)
+* `trips` -> `drivers`, `trucks`, `trailers` (many-to-one)
+* `fuel_purchases`, `delivery_events`, `safety_incidents` -> `trips` (many-to-one)
+* `maintenance_records` -> `trucks` (many-to-one)
+
+</details>
 ## Project Structure
 
 The repository is logically organized into four main directories:

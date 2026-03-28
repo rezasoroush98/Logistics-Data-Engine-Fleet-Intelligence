@@ -4,12 +4,8 @@ This repository showcases an end-to-end SQL analysis of a freight and logistics 
 
 ## Data Source
 The queries in this repository are built on the **Logistics Operations Database**. The original schema and raw tables can be found on Kaggle:  
-[Logistics Operations Database on Kaggle](https://www.kaggle.com/datasets/yogape/logistics-operations-database)
-## Database Schema & Architecture
-The underlying data architecture follows a Star Schema design, consisting of central Fact tables (Trips, Loads, Deliveries, Finances) connected to multiple Dimension tables (Assets, Locations, Personnel).
 
-## Database Schema & Architecture
-The underlying data architecture follows a Star Schema design, consisting of central Fact tables (Trips, Loads, Deliveries, Finances) connected to multiple Dimension tables (Assets, Locations, Personnel).
+[Logistics Operations Database on Kaggle](https://www.kaggle.com/datasets/yogape/logistics-operations-database)
 
 ## Database Schema & Architecture
 The underlying data architecture follows a Star Schema design, consisting of central Fact tables (Trips, Loads, Deliveries, Finances) connected to multiple Dimension tables (Assets, Locations, Personnel).

@@ -11,75 +11,11 @@ The underlying data architecture follows a Star Schema design, consisting of cen
 ## Database Schema & Architecture
 The underlying data architecture follows a Star Schema design, consisting of central Fact tables (Trips, Loads, Deliveries, Finances) connected to multiple Dimension tables (Assets, Locations, Personnel).
 
-```mermaid
-erDiagram
-    CUSTOMERS {
-        string customer_id PK
-        string customer_name
-        string customer_type
-    }
-    ROUTES {
-        string route_id PK
-        string origin_city
-        string destination_city
-    }
-    LOADS {
-        string load_id PK
-        string customer_id FK
-        string route_id FK
-    }
-    TRIPS {
-        string trip_id PK
-        string load_id FK
-        string driver_id FK
-        string truck_id FK
-        string trailer_id FK
-    }
-    DRIVERS {
-        string driver_id PK
-        string first_name
-        string last_name
-    }
-    TRUCKS {
-        string truck_id PK
-        string make
-        string model_year
-    }
-    TRAILERS {
-        string trailer_id PK
-        string trailer_type
-    }
-    FUEL_PURCHASES {
-        string fuel_purchase_id PK
-        string trip_id FK
-        numeric total_cost
-    }
-    MAINTENANCE_RECORDS {
-        string maintenance_id PK
-        string truck_id FK
-        numeric total_cost
-    }
-    DELIVERY_EVENTS {
-        string event_id PK
-        string trip_id FK
-        boolean on_time_flag
-    }
-    SAFETY_INCIDENTS {
-        string incident_id PK
-        string trip_id FK
-        numeric claim_amount
-    }
+## Database Schema & Architecture
+The underlying data architecture follows a Star Schema design, consisting of central Fact tables (Trips, Loads, Deliveries, Finances) connected to multiple Dimension tables (Assets, Locations, Personnel).
 
-    CUSTOMERS ||--o{ LOADS : "places"
-    ROUTES ||--o{ LOADS : "assigned to"
-    LOADS ||--|| TRIPS : "fulfilled by"
-    DRIVERS ||--o{ TRIPS : "drives"
-    TRUCKS ||--o{ TRIPS : "used in"
-    TRAILERS ||--o{ TRIPS : "pulled in"
-    TRIPS ||--o{ FUEL_PURCHASES : "incurs"
-    TRUCKS ||--o{ MAINTENANCE_RECORDS : "undergoes"
-    TRIPS ||--o{ DELIVERY_EVENTS : "tracks"
-    TRIPS ||--o{ SAFETY_INCIDENTS : "records"
+![Logistics Database ERD](Logistics_ERD.png)
+
 <details>
 <summary><b>📋 Click to expand: Data Dictionary & Relationships</b></summary>
 

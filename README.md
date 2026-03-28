@@ -8,7 +8,7 @@ The queries in this repository are built on the **Logistics Operations Database*
 ## Database Schema & Architecture
 The underlying data architecture follows a Star Schema design, consisting of central Fact tables (Trips, Loads, Deliveries, Finances) connected to multiple Dimension tables (Assets, Locations, Personnel).
 
-![Logistics Database ERD](Logistics_ERD.jpg)
+![Logistics Database ERD](Logistics_ERD.png)
 
 <details>
 <summary><b>📋 Click to expand: Data Dictionary & Relationships</b></summary>
